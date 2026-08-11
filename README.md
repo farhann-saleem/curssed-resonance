@@ -56,3 +56,5 @@ Send a simple JSON request to generate either SFX or Music:
 ## Setup & Deployment
 
 Read the **[SETUP.md](./SETUP.md)** file for a full guide on deploying this endpoint to RunPod via GitHub Container Registry (GHCR) and securely linking your Cloudflare R2 bucket.
+
+headsup

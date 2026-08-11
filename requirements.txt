@@ -1,8 +1,10 @@
-runpod==1.6.2
-torch==2.4.1 --extra-index-url https://download.pytorch.org/whl/cu121
-torchaudio==2.4.1 --extra-index-url https://download.pytorch.org/whl/cu121
-transformers==4.44.2
-diffusers==0.30.2
-boto3==1.35.10
-scipy==1.14.1
-pydub==0.25.1
+runpod
+boto3
+scipy
+pydub
+transformers
+diffusers
+accelerate
+safetensors
+librosa
+soundfile

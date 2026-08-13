@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 ENV HF_HOME=/app/hf_cache
 
 # Ensure python symlink exists
-RUN ln -sf $(which python3) /usr/local/bin/python 2>/dev/null || true
+RUN ln -sf $(which python3) /usr/local/bin/python
 
 RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg \
     && rm -rf /var/lib/apt/lists/*
@@ -18,14 +18,14 @@ RUN python3 -m pip install --no-cache-dir torch==2.5.1 torchaudio==2.5.1 --index
 # Clone ControlFoley
 RUN git clone https://github.com/xiaomi-research/controlfoley.git /app/controlfoley && \
     cd /app/controlfoley && \
-    python3 -m pip install --no-cache-dir -r requirements.txt 2>/dev/null || true
+    python3 -m pip install --no-cache-dir -r requirements.txt
 
 # Download ControlFoley weights
 RUN python3 -m pip install --no-cache-dir huggingface_hub && \
-    python3 -c "from huggingface_hub import snapshot_download; snapshot_download('YJX-Xiaomi/ControlFoley', local_dir='/app/controlfoley/model_weights')" || true
+    python3 -c "from huggingface_hub import snapshot_download; snapshot_download('YJX-Xiaomi/ControlFoley', local_dir='/app/controlfoley/model_weights')"
 
 # Install ACE-Step
-RUN python3 -m pip install --no-cache-dir git+https://github.com/ace-step/ACE-Step.git || true
+RUN python3 -m pip install --no-cache-dir git+https://github.com/ace-step/ACE-Step.git
 
 # Install remaining deps
 COPY requirements.txt .
